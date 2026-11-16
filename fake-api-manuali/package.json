@@ -1,5 +1,5 @@
 {
-  "name": "fake-api-marketplace-origem",
+  "name": "fake-api-manuali",
   "version": "1.0.0",
   "description": "Fake API em Node.js/Express compatível com os contratos do Marketplace Origem",
   "main": "server.js",
@@ -8,7 +8,9 @@
     "dev": "node --watch server.js"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.21.2",
-    "cors": "^2.8.5"
+    "npm": "^12.2.2",
+    "start": "^5.1.0"
   }
 }
