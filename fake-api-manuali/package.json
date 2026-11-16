@@ -1,0 +1,14 @@
+{
+  "name": "fake-api-marketplace-origem",
+  "version": "1.0.0",
+  "description": "Fake API em Node.js/Express compatível com os contratos do Marketplace Origem",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5"
+  }
+}
