@@ -1,6 +1,6 @@
-import { Amphora, LucideAmphora } from "lucide-react";
+import { Amphora, } from "lucide-react";
 
-function Logo() {
+export function Logo() {
   return (
     <div
       aria-label="Manuali Pernambuco – página inicial"
@@ -21,4 +21,3 @@ function Logo() {
   );
 }
 
-export { Logo }
