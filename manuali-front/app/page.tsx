@@ -1,4 +1,5 @@
 "use client";
+import { Footer } from "@/components/footer";
 import { VisitantHeader } from "@/components/header";
 import { HeroBanner } from "@/components/herobanner";
 import { ProductCard } from "@/components/product-card";
@@ -99,6 +100,7 @@ export default function HomeMarketplace() {
           </div>
         </SecaoDeCards>
       </main>
+      <Footer/>
     </div>
   );
 }
