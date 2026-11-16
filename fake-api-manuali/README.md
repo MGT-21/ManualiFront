@@ -11,12 +11,12 @@ Fake API em Node.js + Express, baseada nos contratos dos PDFs `Endpoints da API`
 npm install
 npm start
 ```
-A API ficará disponível em `http://localhost:3000`.
+A API ficará disponível em `http://localhost:3001`.
 
 ## Teste rápido
-- `GET http://localhost:3000/health`
-- `GET http://localhost:3000/api/products`
-- `GET http://localhost:3000/api/recomendacoes/destaque`
+- `GET http://localhost:3001/health`
+- `GET http://localhost:3001/api/products`
+- `GET http://localhost:3001/api/recomendacoes/destaque`
 
 ## Usuários de demonstração
 | Tipo | Username | Senha |
