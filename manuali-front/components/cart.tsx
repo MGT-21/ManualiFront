@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ShoppingBag, Trash2, Plus, Minus } from "lucide-react";
+import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
@@ -48,7 +48,7 @@ export function ResponsiveCart() {
   // Botão do ícone do carrinho com contador (reutilizado no mobile e desktop)
   const CartTriggerButton = (
     <Button variant="ghost" size="icon" className="relative" aria-label="Abrir carrinho">
-      <ShoppingBag className="h-5 w-5" />
+      <ShoppingCart className="h-5 w-5 text-muted-foreground" />
       {totalItems > 0 && (
         <Badge
           variant="default"

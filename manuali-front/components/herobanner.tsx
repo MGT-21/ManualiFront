@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { Badge } from "./ui/badge";
 
 export function HeroBanner() {
   return (

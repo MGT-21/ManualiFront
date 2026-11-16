@@ -7,6 +7,8 @@ import { NavMenu } from "./nav-menu"
 import { SearchBar } from "./searchbar";
 import { ResponsiveCart } from "./cart";
 
+
+
 export function VisitantHeader() {
     return (
         <header className="sticky top-0 z-50 w-full border-b border-stone-200/80 bg-white backdrop-blur-md">
@@ -30,9 +32,8 @@ export function VisitantHeader() {
                 <div className="flex gap-2">
                 <ResponsiveCart></ResponsiveCart>
                 <SearchBar/>
-                <UserMenu />
+                <UserMenu/>
                 </div>
-                
             </div>
         </header>
     );
