@@ -1,4 +1,4 @@
-import { Amphora, } from "lucide-react";
+import { Amphora } from "lucide-react";
 
 export function Logo() {
   return (
