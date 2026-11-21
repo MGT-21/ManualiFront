@@ -25,7 +25,7 @@ interface CartItem {
   quantity: number;
 }
 
-export function ResponsiveCart() {
+export function CartMenu() {
   // Dados de exemplo para visualizar o layout
   const [items, setItems] = useState<CartItem[]>([
     { id: "1", name: "Vaso de Barro Esculpido", artisan: "Mestre Vitalino", price: 120.0, quantity: 1 },
@@ -132,7 +132,7 @@ export function ResponsiveCart() {
       {/* 1. MOBILE & TABLET (< 1024px): Abre um Sheet na parte inferior */}
       <div className="lg:hidden">
         <Sheet>
-          <SheetTrigger asChild>{CartTriggerButton}</SheetTrigger>
+          <SheetTrigger>{CartTriggerButton}</SheetTrigger>
           <SheetContent side="bottom" className="rounded-t-2xl">
             <SheetHeader className="mb-4 text-left">
               <SheetTitle>Seu Carrinho ({totalItems})</SheetTitle>
@@ -147,7 +147,7 @@ export function ResponsiveCart() {
       {/* 2. DESKTOP (>= 1024px): Abre um Popover estilo Dropdown */}
       <div className="hidden lg:block">
         <Popover>
-          <PopoverTrigger asChild>{CartTriggerButton}</PopoverTrigger>
+          <PopoverTrigger>{CartTriggerButton}</PopoverTrigger>
           <PopoverContent align="end" className="w-96 p-4">
             <div className="mb-3 font-semibold">Seu Carrinho ({totalItems})</div>
             {CartBody}

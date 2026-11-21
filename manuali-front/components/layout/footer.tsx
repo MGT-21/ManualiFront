@@ -1,4 +1,4 @@
-import { Logo } from "./logo";
+import { Logo } from "@/components/shared/logo";
 
 export function Footer() {
   return (
@@ -7,7 +7,7 @@ export function Footer() {
         <Logo/>
 
         <p className="text-xs text-[#6E6259]">
-          © 2026 MANUALI. Todos os direitos reservados. Fomento da cultura pernambucana.
+          © 2026 MANUALI. Todos os direitos reservados. Cultura pernambucana.
         </p>
 
         <div className="flex items-center gap-4 text-stone-500">

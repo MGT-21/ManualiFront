@@ -1,11 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Logo } from "./logo";
-import { UserMenu } from "./user-menu";
-import { NavMenu } from "./nav-menu"
-import { SearchBar } from "./searchbar";
-import { ResponsiveCart } from "./cart";
+import { Logo } from "@/components/shared/logo";
+import { UserMenu } from "@/components/layout/user-menu";
+import { NavMenu } from "@/components/layout/nav-menu"
+import { SearchBar } from "@/components/layout/search-bar";
+import { CartMenu } from "@/components/layout/cart-menu";
 
 
 
@@ -30,7 +30,7 @@ export function VisitantHeader() {
                     </Link>
                 </nav>
                 <div className="flex gap-2">
-                <ResponsiveCart></ResponsiveCart>
+                <CartMenu/>
                 <SearchBar/>
                 <UserMenu/>
                 </div>
