@@ -26,11 +26,13 @@ import {
   buscarProdutosRelacionados,
 } from "@/services/productsService"
 import type { Product, ProductDetails } from "@/types/product"
+import { useCart } from "@/components/cart/cart-context"
 
 const brl = (value: number) =>
   value.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
 
 export default function ProductPage({ id }: { id: string }) {
+  const { addItem } = useCart()
   const [product, setProduct] = useState<ProductDetails | null>(null)
   const [related, setRelated] = useState<Product[]>([])
   const [selected, setSelected] = useState(0)
@@ -220,7 +222,22 @@ export default function ProductPage({ id }: { id: string }) {
           )}
 
           <div className="space-y-2 pt-2">
-            <Button size="lg" className="w-full" disabled={product.stock === 0}>
+            <Button
+              size="lg"
+              className="w-full"
+              disabled={product.stock === 0}
+              onClick={() =>
+                addItem(
+                  {
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    artisan: `Artesão #${product.artisanId}`,
+                  },
+                  quantity,
+                )
+              }
+            >
               Adicionar ao carrinho
             </Button>
             <Button

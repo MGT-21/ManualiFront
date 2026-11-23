@@ -13,6 +13,7 @@ import { Product } from "@/types/product"
 
 import { ShoppingCartPlus } from "lucide-react"
 import Image from "next/image"
+import { useCart } from "@/components/cart/cart-context"
 
 export function ProductCard({
     id,
@@ -21,6 +22,8 @@ export function ProductCard({
     price,
     image,
 }: Product) {
+    const { addItem } = useCart()
+
     return (
         <Link href={`/product/${id}`}>
             <Card className="relative mx-auto w-full max-w-sm pt-0 overflow-hidden">
@@ -44,7 +47,17 @@ export function ProductCard({
                             currency: "BRL",
                         })}
                     </CardTitle>
-                    <Button><ShoppingCartPlus /><span className="hidden sm:block">Comprar</span></Button>
+                    <Button
+                        type="button"
+                        onClick={(event) => {
+                            event.preventDefault()
+                            event.stopPropagation()
+                            addItem({ id, name, price })
+                        }}
+                    >
+                        <ShoppingCartPlus />
+                        <span className="hidden sm:block">Comprar</span>
+                    </Button>
                 </CardFooter>
             </Card>
         </Link>

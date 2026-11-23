@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,35 +14,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-// Exemplo de estrutura de item
-interface CartItem {
-  id: string;
-  name: string;
-  artisan: string;
-  price: number;
-  quantity: number;
-}
+import { useCart } from "@/components/cart/cart-context";
 
 export function CartMenu() {
-  // Dados de exemplo para visualizar o layout
-  const [items, setItems] = useState<CartItem[]>([
-    { id: "1", name: "Vaso de Barro Esculpido", artisan: "Mestre Vitalino", price: 120.0, quantity: 1 },
-    { id: "2", name: "Rede de Algodão Cru", artisan: "Dona Maria", price: 250.0, quantity: 2 },
-  ]);
+  const { items, updateQuantity } = useCart();
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-  const updateQuantity = (id: string, delta: number) => {
-    setItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === id ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
 
   // Botão do ícone do carrinho com contador (reutilizado no mobile e desktop)
   const CartTriggerButton = (
