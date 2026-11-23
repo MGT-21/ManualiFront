@@ -1,22 +1,19 @@
 "use client";
 
-import { Footer } from "@/components/footer";
-import { VisitantHeader } from "@/components/header";
-import { HeroBanner } from "@/components/herobanner";
-import { ProductCard } from "@/components/product-card";
-import { SecaoDeCards } from "@/components/secao-de-cards";
+import { Footer } from "@/components/layout/footer";
+import { VisitantHeader } from "@/components/layout/header";
+import { HeroBanner } from "@/components/home/hero-banner";
+import { ProductCard } from "@/components/product/product-card";
+import { SecaoDeCards } from "@/components/home/product-list";
 
 import { useEffect, useState } from "react";
-import { buscarProdutosDestaque } from "@/services/produtosService";
-import type { Produto } from "@/types/produto";
+import { buscarProdutosDestaque } from "@/services/productsService";
 
-// Textura de grão de papel para o fundo creme, subliminar (acabamento xilogravura)
-const TEXTURA_PAPEL_SVG = `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.06'/%3E%3C/svg%3E")`;
-
+import type { Product } from "@/types/product"
 
 
 export default function HomeMarketplace() {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [produtos, setProdutos] = useState<Product[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(false);
 
@@ -36,12 +33,8 @@ export default function HomeMarketplace() {
     carregarProdutos();
   }, []);
 
-
   return (
-    <div
-      className="flex min-h-screen flex-col"
-      style={{ backgroundImage: TEXTURA_PAPEL_SVG, backgroundBlendMode: "multiply" }}
-    >
+    <div>
       <VisitantHeader />
       <main className="flex-1 mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 space-y-8">
         <HeroBanner />
@@ -58,17 +51,14 @@ export default function HomeMarketplace() {
             ) : erro ? (
               <p>Não foi possível carregar os produtos. Tente novamente mais tarde.</p>
             ) : produtos.length > 0 ? (
-              produtos.map((produto) => (
+              produtos.map((product) => (
                 <ProductCard
-                  key={produto.id}
-                  id={produto.id}
-                  nome={produto.nome}
-                  artesao={produto.artesao}
-                  preco={produto.preco.toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
-                  imagem={produto.imagem}
+                  key={product.id}
+                  id={product.id}
+                  name={product.name}
+                  description={product.description}
+                  price={product.price}
+                  image={product.image}
                 />
               ))
             ) : (
