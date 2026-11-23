@@ -124,4 +124,4 @@ api.get("/admin/metricas/geral",auth,role("adm"),(req,res)=>ok(res,{usuarios:db.
 api.get("/admin/metricas/recomendacoes",auth,role("adm"),(req,res)=>{const events=db.eventosRecomendacao,impressions=events.filter(e=>e.tipo==="impressao").length,clicks=events.filter(e=>e.tipo==="clique").length;ok(res,{impressoes:impressions,cliques:clicks,ctr:impressions?clicks/impressions:0,adicoesCarrinho:events.filter(e=>e.tipo==="adicao_carrinho").length,pedidosAtribuidos:events.filter(e=>e.tipo==="compra").length,taxaFallback:1,latenciaP95Ms:35,porSuperficie:{destaque:0,produto:0},porVariante:{A:events.length}});});
 app.use(BASE,api);
 app.use((req,res)=>erro(res,404,"NAO_ENCONTRADO","Rota não encontrada."));
-app.listen(3000,()=>console.log("Fake API rodando em http://localhost:3000"));
+app.listen(3001,()=>console.log("Fake API rodando em http://localhost:3001"));
