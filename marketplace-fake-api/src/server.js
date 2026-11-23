@@ -44,7 +44,7 @@ function recommendations(baseId, limit, surface) {
   const chosen=candidates.slice(0,limit);
   const recId=`rec_${Date.now().toString(36)}`;
   return { data:chosen.map((p,i)=>({posicao:i+1,score:+Math.max(.55,.97-i*.06).toFixed(2),produto:productSummary(p)})),
-    meta:{recomendacaoId:recId,superficie:surface,...(base?{produtoBaseId:base.id}:{}),origem:"fallback",modelo:"fake-rules-v1",variante:"A",limite,geradoEm:new Date().toISOString()} };
+    meta:{recomendacaoId:recId,superficie:surface,...(base?{produtoBaseId:base.id}:{}),origem:"fallback",modelo:"fake-rules-v1",variante:"A",limite:limit,geradoEm:new Date().toISOString()} };
 }
 app.get("/health/live",(req,res)=>res.json({status:"ok"}));
 app.get("/health/ready",(req,res)=>res.json({status:"ok",dependencias:{banco:"ok",ia:"simulada"}}));

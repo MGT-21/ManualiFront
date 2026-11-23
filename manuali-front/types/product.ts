@@ -1,19 +1,28 @@
 export interface ProdutoApi {
-  id: string;
+  id: number;
   nome: string;
   preco: number;
   estoque: number;
   ativo: boolean;
   categoria: string;
   fotos: string[];
-  descricao?: string;
-  historia?: string;
+  descricao: string;
+  historia: string;
   artesaoId: number;
+  mediaAvaliacoes: number;
+  totalAvaliacoes: number;
 }
 
-export interface ArtesaoApi {
+export interface ProdutoDestaqueApi {
   id: number;
-  username: string;
+  nome: string;
+  preco: number;
+  imagem: string;
+  categoria: string;
+  estoque: number;
+  mediaAvaliacoes: number;
+  totalAvaliacoes: number;
+  artesaoId: number;
 }
 
 export interface Product {
@@ -22,4 +31,12 @@ export interface Product {
   description?: string;
   price: number;
   image: string;
+}
+
+export interface ProductDetails extends Product {
+  category: string;
+  stock: number;
+  images: string[];
+  story: string;
+  artisanId: number;
 }

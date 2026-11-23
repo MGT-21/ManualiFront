@@ -9,7 +9,7 @@ import { SecaoDeCards } from "@/components/home/product-list";
 import { useEffect, useState } from "react";
 import { buscarProdutosDestaque } from "@/services/productsService";
 
-import { Product } from "@/types/product"
+import type { Product } from "@/types/product"
 
 
 export default function HomeMarketplace() {
@@ -53,13 +53,11 @@ export default function HomeMarketplace() {
             ) : produtos.length > 0 ? (
               produtos.map((product) => (
                 <ProductCard
+                  key={product.id}
                   id={product.id}
                   name={product.name}
                   description={product.description}
-                  price={(product.price /100).toLocaleString("pt-BR", {
-                    style: "currency",
-                    currency: "BRL",
-                  })}
+                  price={product.price}
                   image={product.image}
                 />
               ))
