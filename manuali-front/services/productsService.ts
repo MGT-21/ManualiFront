@@ -1,16 +1,16 @@
 import api from "./api";
-import type { Product, ProdutoApi, ProductDetails } from "@/types/product";
+import type { Product, ProdutoApi } from "@/types/product";
 
 export async function buscarProdutosDestaque(limite = 8): Promise<Product[]> {
-  const { data: produtos } = await api.get<ProdutoApi[]>("/products", {
+  const { data: products } = await api.get<ProdutoApi[]>("produtos", {
     params: { limite },
   });
 
-  return produtos.map((product) => ({
+  return products.map((product) => ({
     id: product.id,
     name: product.nome,
     description: product.descricao,
-    price: product.preco,
+    price: product.preco / 100,
     image: product.fotos[0],
   }));
 }

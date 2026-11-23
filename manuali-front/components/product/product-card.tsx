@@ -7,7 +7,7 @@ import {
     CardTitle,
 } from "@/components/ui/card"
 
-import { Link } from "next/link"
+import Link from "next/link"
 
 import { Product } from "@/types/product"
 

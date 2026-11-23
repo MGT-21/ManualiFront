@@ -1,5 +1,5 @@
 export interface ProdutoApi {
-  id: number;
+  id: string;
   nome: string;
   preco: number;
   estoque: number;
@@ -19,8 +19,7 @@ export interface ArtesaoApi {
 export interface Product {
   id: string;
   name: string;
-  artisan?: string;
   description?: string;
-  price: string;
+  price: number;
   image: string;
 }

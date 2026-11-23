@@ -33,7 +33,6 @@ export default function HomeMarketplace() {
     carregarProdutos();
   }, []);
 
-
   return (
     <div>
       <VisitantHeader />
