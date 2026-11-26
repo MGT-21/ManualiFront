@@ -109,13 +109,13 @@ export function CartMenu() {
       {/* 1. MOBILE & TABLET (< 1024px): Abre um Sheet na parte inferior */}
       <div className="lg:hidden">
         <Sheet>
-          <SheetTrigger>{CartTriggerButton}</SheetTrigger>
+          <SheetTrigger render={CartTriggerButton} />
           <SheetContent side="bottom" className="rounded-t-2xl">
             <SheetHeader className="mb-4 text-left">
               <SheetTitle>Seu Carrinho ({totalItems})</SheetTitle>
             </SheetHeader>
             <div className="px-4">
-                {CartBody}
+              {CartBody}
             </div>
           </SheetContent>
         </Sheet>
@@ -124,7 +124,7 @@ export function CartMenu() {
       {/* 2. DESKTOP (>= 1024px): Abre um Popover estilo Dropdown */}
       <div className="hidden lg:block">
         <Popover>
-          <PopoverTrigger>{CartTriggerButton}</PopoverTrigger>
+          <PopoverTrigger render={CartTriggerButton} />
           <PopoverContent align="end" className="w-96 p-4">
             <div className="mb-3 font-semibold">Seu Carrinho ({totalItems})</div>
             {CartBody}
