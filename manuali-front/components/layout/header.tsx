@@ -19,7 +19,7 @@ export function VisitantHeader() {
                     <Logo />
                 </Link>
                 <nav className="hidden items-center gap-6 md:flex">
-                    <Link href="#" className="text-sm font-medium text-marrom-escuro hover:text-terracota transition-colors">
+                    <Link href="/acervo" className="text-sm font-medium text-marrom-escuro hover:text-terracota transition-colors">
                         Acervo completo
                     </Link>
                     <Link href="#" className="text-sm font-medium text-marrom-escuro hover:text-terracota transition-colors">

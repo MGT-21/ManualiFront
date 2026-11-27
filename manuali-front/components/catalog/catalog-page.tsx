@@ -240,8 +240,9 @@ export function CatalogPage() {
               <PaginationContent>
                 <PaginationItem>
                   <PaginationPrevious
-                    disabled={paginaAtual === 1}
-                    onClick={() => irParaPagina(paginaAtual - 1)}
+                    onClick={() => {
+                      if (paginaAtual > 1) irParaPagina(paginaAtual - 1)
+                    }}
                   />
                 </PaginationItem>
 
@@ -262,8 +263,9 @@ export function CatalogPage() {
 
                 <PaginationItem>
                   <PaginationNext
-                    disabled={paginaAtual === totalPaginas}
-                    onClick={() => irParaPagina(paginaAtual + 1)}
+                    onClick={() => {
+                      if (paginaAtual < totalPaginas) irParaPagina(paginaAtual + 1)
+                    }}
                   />
                 </PaginationItem>
               </PaginationContent>
