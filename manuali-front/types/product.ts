@@ -1,5 +1,5 @@
-export interface ProdutoApi {
-  id: number;
+export interface ProductApiData {
+  id: string;
   nome: string;
   preco: number;
   estoque: number;
@@ -8,35 +8,10 @@ export interface ProdutoApi {
   fotos: string[];
   descricao: string;
   historia: string;
-  artesaoId: number;
-  mediaAvaliacoes: number;
-  totalAvaliacoes: number;
+  artesaoId: string;
 }
 
-export interface ProdutoDestaqueApi {
-  id: number;
-  nome: string;
-  preco: number;
-  imagem: string;
-  categoria: string;
-  estoque: number;
-  mediaAvaliacoes: number;
-  totalAvaliacoes: number;
-  artesaoId: number;
-}
-
-export interface Product {
-  id: string;
-  name: string;
-  description?: string;
-  price: number;
-  image: string;
-}
-
-export interface ProductDetails extends Product {
-  category: string;
-  stock: number;
-  images: string[];
-  story: string;
-  artisanId: number;
-}
+export type ProductCardData = Pick<
+  ProductApiData,
+  "id" | "nome" | "preco" | "fotos" | "descricao"
+>;

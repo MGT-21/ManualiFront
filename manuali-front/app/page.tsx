@@ -7,20 +7,20 @@ import { ProductCard } from "@/components/product/product-card";
 import { SecaoDeCards } from "@/components/home/product-list";
 
 import { useEffect, useState } from "react";
-import { buscarProdutosDestaque } from "@/services/productsService";
+import { getAllProducts } from "@/services/productsService";
 
-import type { Product } from "@/types/product"
+import type { ProductCardData } from "@/types/product"
 
 
 export default function HomeMarketplace() {
-  const [produtos, setProdutos] = useState<Product[]>([]);
+  const [produtos, setProdutos] = useState<ProductCardData[]>([]);
   const [carregando, setCarregando] = useState(true);
   const [erro, setErro] = useState(false);
 
   useEffect(() => {
     async function carregarProdutos() {
       try {
-        const dados = await buscarProdutosDestaque(8);
+        const dados = await getAllProducts(8);
         setProdutos(dados);
       } catch (erro) {
         console.error("Erro ao buscar produtos:", erro);
@@ -55,10 +55,10 @@ export default function HomeMarketplace() {
                 <ProductCard
                   key={product.id}
                   id={product.id}
-                  name={product.name}
-                  description={product.description}
-                  price={product.price}
-                  image={product.image}
+                  nome={product.nome}
+                  descricao={product.descricao}
+                  preco={product.preco}
+                  fotos={product.fotos}
                 />
               ))
             ) : (
