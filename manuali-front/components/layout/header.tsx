@@ -15,7 +15,7 @@ export function VisitantHeader() {
             <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
                 <NavMenu />
 
-                <Link href="/comprador" className="hidden md:flex items-center gap-2.5 group shrink-0">
+                <Link href="/" className="hidden md:flex items-center gap-2.5 group shrink-0">
                     <Logo />
                 </Link>
                 <nav className="hidden items-center gap-6 md:flex">
@@ -30,9 +30,9 @@ export function VisitantHeader() {
                     </Link>
                 </nav>
                 <div className="flex gap-2">
-                <CartMenu/>
-                <SearchBar/>
-                <UserMenu/>
+                    <CartMenu />
+                    <SearchBar />
+                    <UserMenu />
                 </div>
             </div>
         </header>

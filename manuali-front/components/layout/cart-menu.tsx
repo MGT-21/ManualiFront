@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { ShoppingCart, Trash2, Plus, Minus } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -15,35 +14,13 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-
-// Exemplo de estrutura de item
-interface CartItem {
-  id: string;
-  name: string;
-  artisan: string;
-  price: number;
-  quantity: number;
-}
+import { useCart } from "@/components/cart/cart-context";
 
 export function CartMenu() {
-  // Dados de exemplo para visualizar o layout
-  const [items, setItems] = useState<CartItem[]>([
-    { id: "1", name: "Vaso de Barro Esculpido", artisan: "Mestre Vitalino", price: 120.0, quantity: 1 },
-    { id: "2", name: "Rede de Algodão Cru", artisan: "Dona Maria", price: 250.0, quantity: 2 },
-  ]);
+  const { items, updateQuantity } = useCart();
 
   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
   const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
-
-  const updateQuantity = (id: string, delta: number) => {
-    setItems((prev) =>
-      prev
-        .map((item) =>
-          item.id === id ? { ...item, quantity: Math.max(0, item.quantity + delta) } : item
-        )
-        .filter((item) => item.quantity > 0)
-    );
-  };
 
   // Botão do ícone do carrinho com contador (reutilizado no mobile e desktop)
   const CartTriggerButton = (
@@ -132,13 +109,13 @@ export function CartMenu() {
       {/* 1. MOBILE & TABLET (< 1024px): Abre um Sheet na parte inferior */}
       <div className="lg:hidden">
         <Sheet>
-          <SheetTrigger>{CartTriggerButton}</SheetTrigger>
+          <SheetTrigger render={CartTriggerButton} />
           <SheetContent side="bottom" className="rounded-t-2xl">
             <SheetHeader className="mb-4 text-left">
               <SheetTitle>Seu Carrinho ({totalItems})</SheetTitle>
             </SheetHeader>
             <div className="px-4">
-                {CartBody}
+              {CartBody}
             </div>
           </SheetContent>
         </Sheet>
@@ -147,7 +124,7 @@ export function CartMenu() {
       {/* 2. DESKTOP (>= 1024px): Abre um Popover estilo Dropdown */}
       <div className="hidden lg:block">
         <Popover>
-          <PopoverTrigger>{CartTriggerButton}</PopoverTrigger>
+          <PopoverTrigger render={CartTriggerButton} />
           <PopoverContent align="end" className="w-96 p-4">
             <div className="mb-3 font-semibold">Seu Carrinho ({totalItems})</div>
             {CartBody}
